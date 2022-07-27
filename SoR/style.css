@@ -1,0 +1,189 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--bg-color: #f7f7f7;
+	--text-color: #111;
+	--nav-bg: rgb(255, 255, 255);
+	--nav-height: 48px;
+	--nav-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
+	--splitter-color: #dcdcdc;
+	--search-input-color: #f0f0f0;
+	--todo-input-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: #151615;
+		--nav-bg: rgb(0, 0, 0);
+		--nav-shadow: 0 1px 20px rgba(0, 0, 0, 0.5);
+		--text-color: #eee;
+		--splitter-color: #000;
+		--search-input-color: #2d2d2d;
+		--todo-input-color: #000;
+	}
+}
+
+button, input, select {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	border-radius: 0;
+}
+
+button {
+	cursor: pointer;
+}
+
+input {
+	font-size: 1em;
+}
+
+li {
+	list-style: none;
+}
+
+body, input, button {
+	font-family: "Segeo UI", "SF Pro Display", sans-serif;
+}
+
+.select-none, button, .icon {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+.icon {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+/** App */
+body {
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	padding-top: var(--nav-height);
+}
+
+select, input {
+	color: var(--text-color);
+}
+
+/** Header */
+.app-header {
+	width: 100%;
+	height: var(--nav-height);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background-color: var(--nav-bg);
+	box-shadow: var(--nav-shadow);
+	padding: 0 22px;
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+}
+
+
+.gappy-flex {
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+}
+
+.title {
+	font-size: 1.2em;
+	line-height: var(--nav-height);
+}
+
+.splitter {
+	width: 3px;
+	height: calc(100% - 16px);
+	background-color: var(--splitter-color);
+	border-radius: 2px;
+	margin: 8px 10px;
+}
+
+.app-header nav, .menubar {
+	height: 100%;
+}
+
+.menubar {
+	font-size: 14px;
+	align-items: center;
+	gap: 20px;
+}
+
+.search-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.input-wrapper {
+	position: relative;
+	background-color: var(--search-input-color);
+	border-radius: 6px;
+}
+
+.search-input {
+	width: 100%;
+	height: 28px;
+	font-size: 14px;
+	border-radius: inherit;
+	padding: 0 6px 0 26px;
+}
+
+.search-input::-webkit-input-placeholder {
+	color: #c0c0c0;
+	font-weight: 300;
+}
+
+.search-ico {
+	width: 18px;
+	display: block;
+	background-image: url("assets/search.svg");
+	position: absolute;
+	top: 0;
+	left: 5px;
+}
+
+/** Main */
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 40px 20px 0;
+}
+
+.add-todo {
+	width: 100%;
+	max-width: 768px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+.todo-input-wrapper {
+	background-color: var(--todo-input-color);
+	border-radius: 8px;
+	box-shadow: 0 4px 8px transparent;
+	opacity: 0.8;
+	transition: opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.todo-input-wrapper:focus-within {
+	opacity: 1;
+	box-shadow: 0 4px 8px #e0e0e0;
+}
+
+.todo-input {
+	padding: 10px 8px 10px 30px;
+	border-radius: inherit;
+}
